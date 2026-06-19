@@ -15,9 +15,7 @@ La toute première étape a consisté à isoler les dépendances du projet afin 
 
 
 * \*\*Nom de l’environnement :\*\* `.venv`
-
 * \*\*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
-
 * \*\*Interpréteur utilisé :\*\* `Python 3.13`
 
 
@@ -42,9 +40,6 @@ python -m pip install setuptools
 
 
 
-\---
-
-
 
 # 🏗️ 2. Architecture Technique du Projet (`cherifH`)
 
@@ -66,19 +61,13 @@ cherifH/                        # Racine absolue du projet
 
 ├── .venv/                      # Environnement virtuel local (exclu de Git)
 
-│
-
 ├── configs/                    # Centralisation des paramètres
 
 │   └── config.yaml             # Graine (42), taille du test (0.2), etc.
 
-│
-
 ├── data/                       # Répertoire des données brutes/propres
 
 │   └── .gitkeep                # Force Git à conserver le dossier vide
-
-│
 
 ├── src/                        # Code source principal
 
@@ -88,25 +77,15 @@ cherifH/                        # Racine absolue du projet
 
 │   └── utils.py                # Fonctions utilitaires
 
-│
-
 ├── tests/                      # Validation qualité logicielle
 
 │   └── test\_preprocessing.py   # Test pytest de reproductibilité
-
-│
 
 ├── .gitignore                  # Fichiers exclus du versioning
 
 ├── installer.bat               # Installation automatique
 
 └── main.py                     # Point d’entrée du pipeline
-
-```
-
-
-
-\---
 
 
 
@@ -117,23 +96,17 @@ cherifH/                        # Racine absolue du projet
 Une fonction fondamentale nommée `split\_and\_scale()` a été développée afin de préparer les données destinées aux futurs modèles d’Intelligence Artificielle.
 
 
-
 ## 🔄 Pipeline appliqué
-
 
 
 ### 1. Séparation des variables
 
-
-
 La fonction sépare :
-
 
 
 * les \*\*variables explicatives\*\* (\*features\*)
 
 * de la \*\*variable cible\*\* (`pm25`)
-
 
 
 \---
