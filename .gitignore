@@ -1,0 +1,21 @@
+# TODO : Ecrivez les regles d ’ exclusion de votre . gitignore scientifique
+
+# Exclure les caches Python :
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Exclure le contenu des repertoires de donnees ( conserver uniquement les fichiers d ’ architecture )
+data/*
+!data/.gitkeep
+
+# Exclure les checkpoints Jupyter Notebooks :
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
+
+# Exclure l'environnement virtuel local (au cas où) :
+.venv/
+TP1/
