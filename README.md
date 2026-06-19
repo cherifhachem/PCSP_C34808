@@ -1,8 +1,8 @@
-\# 🚀 Mise en place d'un pipeline de Data Science structuré, reproductible et automatisé
+# 🚀 Mise en place d'un pipeline de Data Science structuré, reproductible et automatisé
 
 
 
-\## 📌 1. Création et Configuration de l'Environnement Virtuel
+## 📌 1. Création et Configuration de l'Environnement Virtuel
 
 
 
@@ -10,7 +10,7 @@ La toute première étape a consisté à isoler les dépendances du projet afin 
 
 
 
-\### 🔧 Informations de l’environnement
+### 🔧 Informations de l’environnement
 
 
 
