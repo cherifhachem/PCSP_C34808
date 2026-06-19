@@ -14,15 +14,15 @@ La toute première étape a consisté à isoler les dépendances du projet afin 
 
 
 
-\* \*\*Nom de l’environnement :\*\* `.venv`
+* \*\*Nom de l’environnement :\*\* `.venv`
 
-\* \*\*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
+* \*\*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
 
-\* \*\*Interpréteur utilisé :\*\* `Python 3.13`
+* \*\*Interpréteur utilisé :\*\* `Python 3.13`
 
 
 
-\### ⚠️ Résolution d’un blocage technique
+### ⚠️ Résolution d’un blocage technique
 
 
 
@@ -46,7 +46,7 @@ python -m pip install setuptools
 
 
 
-\# 🏗️ 2. Architecture Technique du Projet (`cherifH`)
+# 🏗️ 2. Architecture Technique du Projet (`cherifH`)
 
 
 
@@ -54,7 +54,7 @@ L’espace de travail a été structuré selon les standards modernes de l’ing
 
 
 
-\## 📂 Arborescence finale du projet
+## 📂 Arborescence finale du projet
 
 
 
@@ -110,7 +110,7 @@ cherifH/                        # Racine absolue du projet
 
 
 
-\# ⚙️ 3. Développement du module de préparation (`src/preprocessing.py`)
+# ⚙️ 3. Développement du module de préparation (`src/preprocessing.py`)
 
 
 
@@ -118,11 +118,11 @@ Une fonction fondamentale nommée `split\_and\_scale()` a été développée afi
 
 
 
-\## 🔄 Pipeline appliqué
+## 🔄 Pipeline appliqué
 
 
 
-\### 1. Séparation des variables
+### 1. Séparation des variables
 
 
 
@@ -130,9 +130,9 @@ La fonction sépare :
 
 
 
-\* les \*\*variables explicatives\*\* (\*features\*)
+* les \*\*variables explicatives\*\* (\*features\*)
 
-\* de la \*\*variable cible\*\* (`pm25`)
+* de la \*\*variable cible\*\* (`pm25`)
 
 
 
@@ -140,7 +140,7 @@ La fonction sépare :
 
 
 
-\### 2. Partitionnement des données
+### 2. Partitionnement des données
 
 
 
@@ -158,7 +158,7 @@ Le dataset est découpé en :
 
 
 
-\### 3. Mise à l’échelle des données
+### 3. Mise à l’échelle des données
 
 
 
@@ -166,11 +166,11 @@ Application d’un `StandardScaler` afin de :
 
 
 
-\* centrer les données
+* centrer les données
 
-\* réduire les écarts-types
+* réduire les écarts-types
 
-\* homogénéiser les ordres de grandeur
+* homogénéiser les ordres de grandeur
 
 
 
@@ -178,7 +178,7 @@ Application d’un `StandardScaler` afin de :
 
 
 
-\## ✅ Correction majeure réalisée
+## ✅ Correction majeure réalisée
 
 
 
@@ -210,7 +210,7 @@ df: pd.DataFrame
 
 
 
-\# 🧪 4. Validation Mathématique de la Reproductibilité (`tests/`)
+# 🧪 4. Validation Mathématique de la Reproductibilité (`tests/`)
 
 
 
@@ -218,7 +218,7 @@ Afin de garantir la robustesse et le caractère déterministe du pipeline, un te
 
 
 
-\## 🔬 Fonctionnement du test
+## 🔬 Fonctionnement du test
 
 
 
@@ -242,7 +242,7 @@ Le script :
 
 
 
-\## 📏 Vérification stricte
+## 📏 Vérification stricte
 
 
 
@@ -266,7 +266,7 @@ Le test n’est validé que si les matrices générées sont \*\*strictement ide
 
 
 
-\## ✅ Résultat obtenu
+## ✅ Résultat obtenu
 
 
 
@@ -286,11 +286,11 @@ Le pipeline est donc officiellement \*\*reproductible\*\*.
 
 
 
-\# 🔒 5. Configuration et Sécurisation Globale
+# 🔒 5. Configuration et Sécurisation Globale
 
 
 
-\## 🧾 Gestion du versioning avec Git
+## 🧾 Gestion du versioning avec Git
 
 
 
@@ -320,7 +320,7 @@ Tout en conservant la structure du projet grâce au fichier `.gitkeep`.
 
 
 
-\## 🚦 Point d’entrée principal (`main.py`)
+## 🚦 Point d’entrée principal (`main.py`)
 
 
 
@@ -328,7 +328,7 @@ Le pipeline principal a été sécurisé avec :
 
 
 
-\### ✅ Chargement dynamique des configurations
+### ✅ Chargement dynamique des configurations
 
 
 
@@ -348,7 +348,7 @@ Permet une gestion robuste et portable des chemins système.
 
 
 
-\### ✅ Fixation universelle des graines aléatoires
+### ✅ Fixation universelle des graines aléatoires
 
 
 
@@ -368,7 +368,7 @@ Garantit la reproductibilité complète des expériences.
 
 
 
-\### ✅ Mode graphique non interactif
+### ✅ Mode graphique non interactif
 
 
 
@@ -384,11 +384,11 @@ Permet :
 
 
 
-\* la génération automatique de graphiques
+* la génération automatique de graphiques
 
-\* l’exécution sur serveur
+* l’exécution sur serveur
 
-\* l’absence de fenêtres bloquantes
+* l’absence de fenêtres bloquantes
 
 
 
@@ -396,7 +396,7 @@ Permet :
 
 
 
-\# ⚡ 6. Automatisation du Déploiement (`installer.bat`)
+# ⚡ 6. Automatisation du Déploiement (`installer.bat`)
 
 
 
@@ -428,7 +428,7 @@ python -m pip freeze > requirements.txt
 
 
 
-\## 🖱️ Installation “En un clic”
+## 🖱️ Installation “En un clic”
 
 
 
@@ -436,13 +436,13 @@ Le script Windows `installer.bat` automatise entièrement :
 
 
 
-\* la création du `.venv`
+* la création du `.venv`
 
-\* l’installation des dépendances
+* l’installation des dépendances
 
-\* la mise à jour des outils JetBrains
+* la mise à jour des outils JetBrains
 
-\* la restauration complète de l’environnement
+* la restauration complète de l’environnement
 
 
 
@@ -450,7 +450,7 @@ Le script Windows `installer.bat` automatise entièrement :
 
 
 
-\## 🎯 Avantage principal
+## 🎯 Avantage principal
 
 
 
@@ -480,15 +480,15 @@ Le projet dispose désormais :
 
 
 
-\* d’une architecture professionnelle
+* d’une architecture professionnelle
 
-\* d’un pipeline reproductible
+* d’un pipeline reproductible
 
-\* d’un environnement isolé
+* d’un environnement isolé
 
-\* d’une automatisation complète
+* d’une automatisation complète
 
-\* d’une validation scientifique via tests unitaires
+* d’une validation scientifique via tests unitaires
 
 
 
@@ -496,13 +496,13 @@ Le système est prêt pour :
 
 
 
-\* l’entraînement de modèles IA
+* l’entraînement de modèles IA
 
-\* l’expérimentation scientifique
+* l’expérimentation scientifique
 
-\* le déploiement futur
+* le déploiement futur
 
-\* la collaboration Git/GitHub
+* la collaboration Git/GitHub
 
 
 
