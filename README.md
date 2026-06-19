@@ -14,9 +14,9 @@ La toute première étape a consisté à isoler les dépendances du projet afin 
 
 
 
-* \*\*Nom de l’environnement :\*\* `.venv`
-* \*\*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
-* \*\*Interpréteur utilisé :\*\* `Python 3.13`
+*Nom de l’environnement :\*\* `.venv`
+*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
+*Interpréteur utilisé :\*\* `Python 3.13`
 
 
 
