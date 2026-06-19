@@ -1,24 +1,64 @@
-Mise en place d'un pipeline de Data Science structuré, reproductible et automatisé
+\# 🚀 Mise en place d'un pipeline de Data Science structuré, reproductible et automatisé
 
-1\.	Création et Configuration de l'Environnement Virtuel
 
-La toute première étape a consisté à isoler les dépendances de mon projet pour éviter les conflits de versions.
 
-•	Nom de l'environnement : .venv
+\## 📌 1. Création et Configuration de l'Environnement Virtuel
 
-•	Emplacement absolu : C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\
 
-•	Interpréteur sous-jacent : Python 3.13
 
-•	Résolution du blocage technique : L'exécuteur de tests de PyCharm nécessitait l'outil de distribution setuptools. configuré via la commande : 
+La toute première étape a consisté à isoler les dépendances du projet afin d’éviter les conflits de versions et garantir la reproductibilité de l’environnement de développement.
+
+
+
+\### 🔧 Informations de l’environnement
+
+
+
+\* \*\*Nom de l’environnement :\*\* `.venv`
+
+\* \*\*Emplacement absolu :\*\* `C:\\Users\\Hachem\\Desktop\\cherifH\\.venv\\`
+
+\* \*\*Interpréteur utilisé :\*\* `Python 3.13`
+
+
+
+\### ⚠️ Résolution d’un blocage technique
+
+
+
+L’exécuteur de tests de PyCharm nécessitait l’installation de l’outil de distribution `setuptools`.
+
+
+
+Commande utilisée :
+
+
+
+```bash
 
 python -m pip install setuptools
 
-2\.	Architecture Technique du Projet (cherifH)
-
-L’espace de travail est structuré selon les standards de l'ingénierie logicielle en Data Science. Voici l'arborescence finale située sur le bureau :
+```
 
 
+
+\---
+
+
+
+\# 🏗️ 2. Architecture Technique du Projet (`cherifH`)
+
+
+
+L’espace de travail a été structuré selon les standards modernes de l’ingénierie logicielle appliquée à la Data Science.
+
+
+
+\## 📂 Arborescence finale du projet
+
+
+
+```text
 
 cherifH/                        # Racine absolue du projet
 
@@ -30,83 +70,443 @@ cherifH/                        # Racine absolue du projet
 
 ├── configs/                    # Centralisation des paramètres
 
-│   └── config.yaml             # Contient la graine (42), la taille du test (0.2), etc.
+│   └── config.yaml             # Graine (42), taille du test (0.2), etc.
 
 │
 
 ├── data/                       # Répertoire des données brutes/propres
 
-│   └── .gitkeep                # Force Git à conserver le dossier même s'il est vide
+│   └── .gitkeep                # Force Git à conserver le dossier vide
 
 │
 
-├── src/                        # Code source (Cœur logique)
+├── src/                        # Code source principal
 
-│   ├── \_\_init\_\_.py             # Rend le dossier importable en tant que module Python
+│   ├── \_\_init\_\_.py             # Rend le dossier importable
 
-│   ├── preprocessing.py        # Nettoyage, IQR, et fonction split\_and\_scale()
+│   ├── preprocessing.py        # Nettoyage + scaling + split
 
-│   └── utils.py                # Fonctions d'aide (load\_config, set\_seed)
-
-│
-
-├── tests/                      # Validation de la qualité logicielle
-
-│   └── test\_preprocessing.py   # Script pytest vérifiant la reproductibilité
+│   └── utils.py                # Fonctions utilitaires
 
 │
 
-├── .gitignore                  # Règles d'exclusion (cache, .venv, données lourdes)
+├── tests/                      # Validation qualité logicielle
 
-├── installer.bat               # Script d'automatisation d'environnement "En un clic"
+│   └── test\_preprocessing.py   # Test pytest de reproductibilité
 
-└── main.py                     # Point d'entrée unique de votre pipeline d'exécution
+│
 
+├── .gitignore                  # Fichiers exclus du versioning
 
+├── installer.bat               # Installation automatique
 
-3\.	Développement du Code de Préparation (src/preprocessing.py)
+└── main.py                     # Point d’entrée du pipeline
 
-On a développé et corrigé la fonction fondamentale split\_and\_scale chargée de préparer la matière première pour les futurs modèles d'Intelligence Artificielle.
-
-Cette fonction applique le flux de traitement suivant :
-
-1\.	Séparation : Elle sépare les variables explicatives (features) de la variable cible (la colonne de pollution pm25).
-
-2\.	Partitionnement : Elle découpe le jeu de données en un ensemble d'entraînement (80%) et un ensemble de test (20%).
-
-3\.	Mise à l'échelle (Scaling) : Elle applique un StandardScaler (centrage-réduction) pour harmoniser l'ordre de grandeur des données.
-
-•	Correction majeure : Ajout de l'import import pandas as pd indispensable à la lecture de l'annotation de type df: pd.DataFrame.
-
-4\.	Validation Mathématique de la Reproductibilité (tests/)
-
-Pour prouver que votre code est robuste et déterministe, nous avons conçu un test unitaire automatisé avec le framework pytest dans test\_preprocessing.py.
-
-•	Mécanisme : Le test génère une matrice fictive de 100 lignes et appelle la fonction split\_and\_scale deux fois de suite en lui injectant la même configuration (verrouillée sur la graine aléatoire random\_seed: 42).
-
-•	Assertion : Grâce à np.testing.assert\_array\_equal, le script ne valide que si les matrices générées lors du premier et du deuxième appel sont strictement identiques, au pixel près.
-
-•	Résultat : PASSED \[100%]. Le code est officiellement certifié reproductible.
-
-5\.	Configuration et Sécurisation Globale (.gitignore \& main.py)
-
-•	Gestion du Code Source via Git : Le fichier .gitignore scientifique masque les éléments locaux lourds ou temporaires (data/\*, \_\_pycache\_\_/, .ipynb\_checkpoints/) tout en préservant la structure du projet.
-
-•	Fermeture du Pipeline Principal (main.py) : On a programmé le point d'entrée de l'application :
-
-	Chargement dynamique de configs/config.yaml via un chemin système sécurisé (os.path.join).
-
-	Fixation universelle des graines de hasard (set\_seed).
-
-	Activation du mode graphique non-interactif matplotlib.use('Agg') pour permettre la génération et la sauvegarde de graphiques de pollution en arrière-plan sans ouvrir de pop-up bloquante.
-
-6\.	Automatisation du Déploiement "En un Clic" (installer.bat)
-
-Pour finir, on a figé l'intégralité de nos dépendances dans un fichier requirements.txt (python -m pip freeze > requirements.txt) et créé un script d'automatisation Windows nommé installer.bat.
-
-Désormais, pour travailler sur une autre machine, il suffit de copier ce dossier et de double-cliquer sur installer.bat. Le script se charge seul de recréer le .venv, de mettre à jour les outils JetBrains, et d'installer l'intégralité des packages de calcul à l'identique, sans taper une seule commande.
+```
 
 
+
+\---
+
+
+
+\# ⚙️ 3. Développement du module de préparation (`src/preprocessing.py`)
+
+
+
+Une fonction fondamentale nommée `split\_and\_scale()` a été développée afin de préparer les données destinées aux futurs modèles d’Intelligence Artificielle.
+
+
+
+\## 🔄 Pipeline appliqué
+
+
+
+\### 1. Séparation des variables
+
+
+
+La fonction sépare :
+
+
+
+\* les \*\*variables explicatives\*\* (\*features\*)
+
+\* de la \*\*variable cible\*\* (`pm25`)
+
+
+
+\---
+
+
+
+\### 2. Partitionnement des données
+
+
+
+Le dataset est découpé en :
+
+
+
+\* \*\*80 %\*\* pour l’entraînement
+
+\* \*\*20 %\*\* pour le test
+
+
+
+\---
+
+
+
+\### 3. Mise à l’échelle des données
+
+
+
+Application d’un `StandardScaler` afin de :
+
+
+
+\* centrer les données
+
+\* réduire les écarts-types
+
+\* homogénéiser les ordres de grandeur
+
+
+
+\---
+
+
+
+\## ✅ Correction majeure réalisée
+
+
+
+Ajout de l’import indispensable :
+
+
+
+```python
+
+import pandas as pd
+
+```
+
+
+
+Cet import était nécessaire pour interpréter correctement l’annotation :
+
+
+
+```python
+
+df: pd.DataFrame
+
+```
+
+
+
+\---
+
+
+
+\# 🧪 4. Validation Mathématique de la Reproductibilité (`tests/`)
+
+
+
+Afin de garantir la robustesse et le caractère déterministe du pipeline, un test unitaire automatisé a été conçu avec `pytest`.
+
+
+
+\## 🔬 Fonctionnement du test
+
+
+
+Le script :
+
+
+
+1\. génère une matrice fictive de \*\*100 lignes\*\*
+
+2\. appelle `split\_and\_scale()` deux fois
+
+3\. injecte la même configuration :
+
+
+
+&#x20;  \* `random\_seed: 42`
+
+
+
+\---
+
+
+
+\## 📏 Vérification stricte
+
+
+
+La comparaison est réalisée via :
+
+
+
+```python
+
+np.testing.assert\_array\_equal
+
+```
+
+
+
+Le test n’est validé que si les matrices générées sont \*\*strictement identiques\*\*.
+
+
+
+\---
+
+
+
+\## ✅ Résultat obtenu
+
+
+
+```text
+
+PASSED \[100%]
+
+```
+
+
+
+Le pipeline est donc officiellement \*\*reproductible\*\*.
+
+
+
+\---
+
+
+
+\# 🔒 5. Configuration et Sécurisation Globale
+
+
+
+\## 🧾 Gestion du versioning avec Git
+
+
+
+Le fichier `.gitignore` exclut :
+
+
+
+```text
+
+data/\*
+
+\_\_pycache\_\_/
+
+.ipynb\_checkpoints/
+
+.venv/
+
+```
+
+
+
+Tout en conservant la structure du projet grâce au fichier `.gitkeep`.
+
+
+
+\---
+
+
+
+\## 🚦 Point d’entrée principal (`main.py`)
+
+
+
+Le pipeline principal a été sécurisé avec :
+
+
+
+\### ✅ Chargement dynamique des configurations
+
+
+
+```python
+
+os.path.join()
+
+```
+
+
+
+Permet une gestion robuste et portable des chemins système.
+
+
+
+\---
+
+
+
+\### ✅ Fixation universelle des graines aléatoires
+
+
+
+```python
+
+set\_seed()
+
+```
+
+
+
+Garantit la reproductibilité complète des expériences.
+
+
+
+\---
+
+
+
+\### ✅ Mode graphique non interactif
+
+
+
+```python
+
+matplotlib.use('Agg')
+
+```
+
+
+
+Permet :
+
+
+
+\* la génération automatique de graphiques
+
+\* l’exécution sur serveur
+
+\* l’absence de fenêtres bloquantes
+
+
+
+\---
+
+
+
+\# ⚡ 6. Automatisation du Déploiement (`installer.bat`)
+
+
+
+Toutes les dépendances du projet ont été figées dans :
+
+
+
+```bash
+
+requirements.txt
+
+```
+
+
+
+via :
+
+
+
+```bash
+
+python -m pip freeze > requirements.txt
+
+```
+
+
+
+\---
+
+
+
+\## 🖱️ Installation “En un clic”
+
+
+
+Le script Windows `installer.bat` automatise entièrement :
+
+
+
+\* la création du `.venv`
+
+\* l’installation des dépendances
+
+\* la mise à jour des outils JetBrains
+
+\* la restauration complète de l’environnement
+
+
+
+\---
+
+
+
+\## 🎯 Avantage principal
+
+
+
+Pour réutiliser le projet sur une autre machine :
+
+
+
+1\. Copier le dossier `cherifH`
+
+2\. Double-cliquer sur `installer.bat`
+
+
+
+➡️ Aucun besoin de retaper les commandes manuellement.
+
+
+
+\---
+
+
+
+\# ✅ Résultat Final
+
+
+
+Le projet dispose désormais :
+
+
+
+\* d’une architecture professionnelle
+
+\* d’un pipeline reproductible
+
+\* d’un environnement isolé
+
+\* d’une automatisation complète
+
+\* d’une validation scientifique via tests unitaires
+
+
+
+Le système est prêt pour :
+
+
+
+\* l’entraînement de modèles IA
+
+\* l’expérimentation scientifique
+
+\* le déploiement futur
+
+\* la collaboration Git/GitHub
+
+
+
+\---
 
 
 
